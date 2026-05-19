@@ -1,0 +1,108 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html, body {
+    min-height: 100%;
+}
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    color: #333;
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    grid-template-rows: auto 1fr;
+    grid-template-areas:
+        "header header"
+        "nav main";
+    min-height: 100vh;
+}
+header {
+    grid-area: header;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background-color: blueviolet;
+    color: white;
+    padding: 20px;
+}
+.header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+}
+nav {
+    grid-area: nav;
+    padding: 20px;
+    background-color: #5b3eb3;
+}
+nav ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 14px;
+    border-radius: 8px;
+    display: inline-flex;
+    align-items: center;
+}
+nav a:hover {
+    background-color: rgba(255,255,255,0.15);
+}
+main {
+    grid-area: main;
+    padding: 24px;
+    background-color: #ffffff;
+}
+.profile {
+    position: relative;
+}
+.profile-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background-color: rgba(255,255,255,0.18);
+    font-size: 22px;
+}
+.notification-dot {
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    width: 12px;
+    height: 12px;
+    background-color: #ff3b30;
+    border-radius: 50%;
+    border: 2px solid white;
+}
+.sr-only {
+    position: absolute !important;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+@media (max-width: 720px) {
+    body {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "header"
+            "nav"
+            "main";
+    }
+    nav {
+        padding: 16px;
+    }
+}
